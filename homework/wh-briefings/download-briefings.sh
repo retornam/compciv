@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # This script  visits the  https://whitehouse.gov
 # and downloads all the available press briefings
