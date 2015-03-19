@@ -37,6 +37,14 @@ strip_text_from_html() {
     echo "DONE....Exiting\n"
 }
 
+sort_words(){
+    if [ -e "$cwd/html/briefings/all_press_briefing_words" ]; then
+        cat "$cwd/html/briefings/all_press_briefing_words" | grep -oE '[[:alpha:]]{5,}' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn > "$cwd/html/briefings/sorted_briefing_words"
+    else
+        echo "The file $cwd/html/briefings/all_press_briefing_words doesn't exist"
+    fi
+}
+
 
 
 if  [ $filescount > 0 ] ; then
@@ -49,3 +57,4 @@ else
 fi
 
 strip_text_from_html
+sort_words
